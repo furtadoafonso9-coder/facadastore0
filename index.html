@@ -386,7 +386,7 @@
         }
         .link-saber-mais:hover { color: white; gap: 12px; }
 
-        /* --- PORTFÓLIO DINÂMICO E INTERATIVO --- */
+        /* --- PORTFÓLIO IDÊNTICO À IMAGEM (MOCKUPS ESCUROS) --- */
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -414,66 +414,38 @@
         .portfolio-img-container {
             position: relative;
             width: 100%;
-            height: 200px;
+            height: 180px;
             overflow: hidden;
+            background: #040406;
         }
 
         .portfolio-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease;
+            opacity: 0.85;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease, opacity 0.4s ease;
         }
 
         .portfolio-item:hover .portfolio-img-container img {
-            transform: scale(1.15) rotate(1deg);
-            filter: brightness(1.15) contrast(1.05);
-        }
-
-        /* Efeito de brilho móvel sobre a imagem ao passar o rato */
-        .portfolio-img-container::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(244,17,44,0.3) 0%, transparent 60%);
-            opacity: 0;
-            transition: 0.4s ease;
-        }
-
-        .portfolio-item:hover .portfolio-img-container::after {
+            transform: scale(1.12);
+            filter: brightness(1.2) contrast(1.1);
             opacity: 1;
         }
 
-        .portfolio-badge-overlay {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(244, 17, 44, 0.5);
-            color: var(--primary-red);
-            font-size: 10px;
-            font-weight: 800;
-            padding: 5px 10px;
-            border-radius: 6px;
-            z-index: 3;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
         .portfolio-content {
-            padding: 22px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: linear-gradient(180deg, #0a0a0d 0%, #060608 100%);
+            background: #0d0c11;
         }
         
         .portfolio-content h4 { 
-            font-size: 16px; 
-            margin-bottom: 8px; 
+            font-size: 15px; 
+            margin-bottom: 5px; 
             font-weight: 700; 
-            letter-spacing: -0.3px;
             transition: color 0.3s;
         }
 
@@ -482,26 +454,23 @@
         }
 
         .portfolio-content p { 
-            font-size: 13px; 
+            font-size: 12px; 
             color: var(--text-muted); 
-            margin-bottom: 20px; 
+            margin-bottom: 15px; 
         }
 
         .portfolio-link {
             font-size: 12px;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--primary-red);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             text-transform: uppercase;
             transition: 0.3s;
         }
 
-        .portfolio-item:hover .portfolio-link {
-            color: var(--primary-red);
-            gap: 12px;
-        }
+        .portfolio-link:hover { color: white; gap: 10px; }
 
         .btn-center { display: flex; justify-content: center; }
 
@@ -527,11 +496,6 @@
             background: linear-gradient(180deg, rgba(244,17,44,0.06) 0%, #0a0a0d 100%);
             transform: scale(1.02);
             box-shadow: 0 10px 30px rgba(244,17,44,0.15);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.04);
-            box-shadow: 0 15px 40px rgba(244,17,44,0.25);
         }
 
         .badge-popular {
@@ -597,12 +561,6 @@
             align-items: center;
             box-shadow: inset 0 0 50px rgba(244, 17, 44, 0.05);
             margin-bottom: 80px;
-            transition: 0.3s;
-        }
-
-        .cta-banner:hover {
-            border-color: var(--primary-red);
-            box-shadow: inset 0 0 60px rgba(244, 17, 44, 0.1), 0 0 30px rgba(244,17,44,0.2);
         }
 
         .cta-left { display: flex; align-items: center; gap: 30px; }
@@ -715,65 +673,65 @@
                 </div>
             </div>
 
-            <!-- PORTFÓLIO DINÂMICO E INTERATIVO -->
+            <!-- PORTFÓLIO (ESTILO IDÊNTICO À IMAGEM) -->
             <div id="portfolio" class="section-header">
                 <div class="subtitle">ALGUNS TRABALHOS</div>
                 <h2 class="title">PORTFÓLIO</h2>
             </div>
             <div class="grid-4">
+                <!-- 1. Servidor de Comunidade -->
                 <div class="portfolio-item">
                     <div class="portfolio-img-container">
-                        <span class="portfolio-badge-overlay"><i class="fa-solid fa-server" style="color: #22c55e;"></i> Servidor</span>
-                        <img src="https://images.unsplash.com/photo-1614680376593-902f749f7ffc?q=80&w=600&auto=format&fit=crop" alt="Servidor Discord">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Servidor de Comunidade">
                     </div>
                     <div class="portfolio-content">
                         <div>
                             <h4>Servidor de Comunidade</h4>
-                            <p>Setup completo, canais organizados, cargos e logs automáticos.</p>
+                            <p>Sistema completo de cargos e permissões</p>
                         </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- 2. Bot Multifuncional -->
                 <div class="portfolio-item">
                     <div class="portfolio-img-container">
-                        <span class="portfolio-badge-overlay"><i class="fa-solid fa-robot" style="color: #f4112c;"></i> Bot</span>
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Bot Customizado">
+                        <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=600&auto=format&fit=crop" alt="Bot Multifuncional">
                     </div>
                     <div class="portfolio-content">
                         <div>
                             <h4>Bot Multifuncional</h4>
-                            <p>Moderação avançada, painel de tickets e sistema de economia.</p>
+                            <p>Bot com +50 comandos personalizados</p>
                         </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- 3. Landing Page Moderna -->
                 <div class="portfolio-item">
                     <div class="portfolio-img-container">
-                        <span class="portfolio-badge-overlay"><i class="fa-solid fa-code" style="color: #3b82f6;"></i> Web</span>
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Dashboard Web">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop" alt="Landing Page Moderna">
                     </div>
                     <div class="portfolio-content">
                         <div>
-                            <h4>Painel Web Moderno</h4>
-                            <p>Interface futurista de alta performance conectada ao teu bot.</p>
+                            <h4>Landing Page Moderna</h4>
+                            <p>Site institucional responsivo</p>
                         </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- 4. Loja Online -->
                 <div class="portfolio-item">
                     <div class="portfolio-img-container">
-                        <span class="portfolio-badge-overlay"><i class="fa-solid fa-store" style="color: #a855f7;"></i> Loja</span>
-                        <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=600&auto=format&fit=crop" alt="Loja Automatizada">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop" alt="Loja Online">
                     </div>
                     <div class="portfolio-content">
                         <div>
-                            <h4>Loja Automatizada</h4>
-                            <p>Plataforma de vendas integrada com entrega instantânea.</p>
+                            <h4>Loja Online</h4>
+                            <p>E-commerce personalizado</p>
                         </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="portfolio-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
