@@ -21,6 +21,11 @@
             --border-color: #22222c;
         }
 
+        /* Efeito de scroll suave para o menu funcionar bem */
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -83,18 +88,8 @@
             position: relative;
         }
 
-        nav ul li a:hover, nav ul li a.active {
+        nav ul li a:hover {
             color: var(--text-light);
-        }
-
-        nav ul li a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-red);
         }
 
         .btn-header {
@@ -270,6 +265,7 @@
             border-radius: 20px;
             padding: 60px;
             margin-bottom: 40px;
+            scroll-margin-top: 100px; /* Ajuda a não colar o título ao topo no scroll */
         }
 
         .section-header { margin-bottom: 40px; }
@@ -360,7 +356,12 @@
             border-radius: 8px;
             border: 1px solid var(--border-color);
             margin-bottom: 15px;
-            background: #111;
+            transition: 0.3s;
+        }
+
+        .portfolio-item:hover img {
+            border-color: var(--primary-red);
+            opacity: 0.8;
         }
         
         .portfolio-item h4 { font-size: 15px; margin-bottom: 5px; }
@@ -423,6 +424,8 @@
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
+            text-align: center;
+            display: block;
         }
         
         .pricing-card.featured .btn-pricing {
@@ -483,22 +486,21 @@
         }
     </style>
 </head>
-<body>
+<body id="inicio">
 
     <!-- CABEÇALHO -->
     <header>
         <div class="logo"><i class="fa-solid fa-bolt"></i> FACADA<span>STORE</span></div>
         <nav>
             <ul>
-                <li><a href="#" class="active">INÍCIO</a></li>
-                <li><a href="#">SERVIÇOS</a></li>
-                <li><a href="#">PORTFÓLIO</a></li>
-                <li><a href="#">PREÇOS</a></li>
-                <li><a href="#">SOBRE</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="#inicio">INÍCIO</a></li>
+                <li><a href="#servicos">SERVIÇOS</a></li>
+                <li><a href="#portfolio">PORTFÓLIO</a></li>
+                <li><a href="#precos">PREÇOS</a></li>
             </ul>
         </nav>
-        <a href="#" class="btn-header"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
+        <!-- BOTÃO COM O TEU LINK DO DISCORD -->
+        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-header"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
     </header>
 
     <div class="container">
@@ -511,8 +513,9 @@
                 <p>Desenvolvimento profissional para o teu Discord, servidores e projetos web. Qualidade que faz a diferença.</p>
                 
                 <div class="hero-buttons">
-                    <button class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</button>
-                    <button class="btn-outline"><i class="fa-solid fa-layer-group"></i> VER SERVIÇOS</button>
+                    <!-- BOTÃO COM O TEU LINK DO DISCORD -->
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
+                    <a href="#servicos" class="btn-outline"><i class="fa-solid fa-layer-group"></i> VER SERVIÇOS</a>
                 </div>
 
                 <div class="hero-features">
@@ -530,11 +533,11 @@
             </div>
         </section>
 
-        <!-- CAIXA PRINCIPAL ENGLOBANDO AS SECÇÕES (Estilo Dark Box) -->
+        <!-- CAIXA PRINCIPAL ENGLOBANDO AS SECÇÕES -->
         <div class="section-box">
             
             <!-- SECÇÃO SERVIÇOS -->
-            <div class="section-header">
+            <div id="servicos" class="section-header">
                 <div class="subtitle">O QUE EU FAÇO</div>
                 <h2 class="title">SERVIÇOS</h2>
             </div>
@@ -543,56 +546,56 @@
                     <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
                     <h3>BOTS DISCORD</h3>
                     <p>Bots personalizados para Discord com os comandos e funcionalidades que precisas. Moderação, utilitários, economia, música e muito mais.</p>
-                    <a href="#" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="card">
                     <div class="icon-box"><i class="fa-solid fa-server"></i></div>
                     <h3>SERVIDORES DISCORD</h3>
                     <p>Criação completa de servidores Discord profissionais, com sistema de cargos, permissões, logs, tickets e muito mais.</p>
-                    <a href="#" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="card">
                     <div class="icon-box"><i class="fa-solid fa-code"></i></div>
                     <h3>SITES PERSONALIZADOS</h3>
                     <p>Desenvolvimento de sites modernos, rápidos e responsivos para o teu negócio, comunidade ou projeto pessoal.</p>
-                    <a href="#" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
 
             <!-- SECÇÃO PORTFÓLIO -->
-            <div class="section-header">
+            <div id="portfolio" class="section-header">
                 <div class="subtitle">ALGUNS TRABALHOS</div>
                 <h2 class="title">PORTFÓLIO</h2>
             </div>
             <div class="grid-4">
-                <!-- Imagens simuladas vazias escuras como placeholders -->
+                <!-- Imagens substituídas por placeholders temáticos parecidos com a imagem -->
                 <div class="portfolio-item">
-                    <div style="width:100%; height:160px; background:#1a1a24; border-radius:8px; margin-bottom:15px;"></div>
+                    <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=600&auto=format&fit=crop" alt="Servidor de Comunidade">
                     <h4>Servidor de Comunidade</h4>
                     <p>Sistema completo de cargos e permissões</p>
                 </div>
                 <div class="portfolio-item">
-                    <div style="width:100%; height:160px; background:#1a1a24; border-radius:8px; margin-bottom:15px;"></div>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="Bot Multifuncional">
                     <h4>Bot Multifuncional</h4>
                     <p>Bot com +50 comandos personalizados</p>
                 </div>
                 <div class="portfolio-item">
-                    <div style="width:100%; height:160px; background:#1a1a24; border-radius:8px; margin-bottom:15px;"></div>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop" alt="Landing Page Moderna">
                     <h4>Landing Page Moderna</h4>
                     <p>Site institucional responsivo</p>
                 </div>
                 <div class="portfolio-item">
-                    <div style="width:100%; height:160px; background:#1a1a24; border-radius:8px; margin-bottom:15px;"></div>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Loja Online">
                     <h4>Loja Online</h4>
                     <p>E-commerce personalizado</p>
                 </div>
             </div>
             <div class="btn-center" style="margin-bottom: 80px;">
-                <button class="btn-outline"><i class="fa-solid fa-grip"></i> VER MAIS PROJETOS</button>
+                <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-outline"><i class="fa-solid fa-grip"></i> VER MAIS PROJETOS</a>
             </div>
 
             <!-- SECÇÃO PREÇOS -->
-            <div class="section-header">
+            <div id="precos" class="section-header">
                 <div class="subtitle">PLANOS POPULARES</div>
                 <h2 class="title">PREÇOS</h2>
             </div>
@@ -607,7 +610,8 @@
                         <li><i class="fa-solid fa-circle-check"></i> Suporte via Discord</li>
                         <li><i class="fa-solid fa-circle-check"></i> Entrega em até 3 dias</li>
                     </ul>
-                    <button class="btn-pricing">PEDIR ORÇAMENTO</button>
+                    <!-- BOTÃO COM O TEU LINK DO DISCORD -->
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
                 </div>
                 
                 <div class="pricing-card featured">
@@ -622,7 +626,7 @@
                         <li><i class="fa-solid fa-circle-check"></i> Suporte prioritário</li>
                         <li><i class="fa-solid fa-circle-check"></i> Entrega em até 7 dias</li>
                     </ul>
-                    <button class="btn-pricing">PEDIR ORÇAMENTO</button>
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
                 </div>
 
                 <div class="pricing-card">
@@ -635,7 +639,7 @@
                         <li><i class="fa-solid fa-circle-check"></i> Suporte 24/7</li>
                         <li><i class="fa-solid fa-circle-check"></i> Entrega rápida</li>
                     </ul>
-                    <button class="btn-pricing">PEDIR ORÇAMENTO</button>
+                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
                 </div>
             </div>
 
@@ -651,7 +655,8 @@
                     <p>Tira dúvidas, pede orçamentos ou acompanha os meus trabalhos.</p>
                 </div>
             </div>
-            <button class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</button>
+            <!-- BOTÃO COM O TEU LINK DO DISCORD -->
+            <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
         </div>
 
     </div>
@@ -666,27 +671,24 @@
             <div class="footer-col">
                 <h4>NAVEGAÇÃO</h4>
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Serviços</a></li>
-                    <li><a href="#">Portfólio</a></li>
-                    <li><a href="#">Preços</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#precos">Preços</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>SERVIÇOS</h4>
                 <ul>
-                    <li><a href="#">Bots Discord</a></li>
-                    <li><a href="#">Servidores Discord</a></li>
-                    <li><a href="#">Sites Personalizados</a></li>
-                    <li><a href="#">Manutenção</a></li>
-                    <li><a href="#">Suporte</a></li>
+                    <li><a href="#servicos">Bots Discord</a></li>
+                    <li><a href="#servicos">Servidores Discord</a></li>
+                    <li><a href="#servicos">Sites Personalizados</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>CONTACTO</h4>
                 <ul>
-                    <li><a href="#">Discord: <span style="color:#5865F2;">facada.store</span></a></li>
+                    <li><a href="https://discord.com/invite/kUdzVrBS5T" target="_blank">Discord: <span style="color:#5865F2;">facada.store</span></a></li>
                     <li><a href="#">Email: <span style="color:var(--primary-red);">contacto@facadastore.com</span></a></li>
                     <li><a href="#">Horário: 10h - 22h (Todos os dias)</a></li>
                 </ul>
@@ -694,7 +696,7 @@
             <div class="footer-col">
                 <h4>REDES</h4>
                 <ul>
-                    <li><a href="#"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                    <li><a href="https://discord.com/invite/kUdzVrBS5T" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a></li>
                     <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
                     <li><a href="#"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
                 </ul>
