@@ -4,864 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FACADA STORE</title>
-    <!-- Tipo de letra -->
+    <!-- Fonte e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Ícones FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --bg-dark: #050505;
             --bg-card: #0d0c11;
-            --bg-card-hover: #15141b;
             --primary-red: #f4112c;
-            --primary-dark: #8b0010;
             --text-light: #ffffff;
             --text-muted: #8e8e99;
             --border-color: #22222c;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden;
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(244, 17, 44, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(244, 17, 44, 0.05) 0%, transparent 50%);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
 
-        /* --- HEADER --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            border-bottom: 1px solid var(--border-color);
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 900;
-            font-size: 24px;
-            letter-spacing: -0.5px;
-        }
-        
-        .logo i { color: var(--primary-red); font-size: 28px; animation: pulseIcon 2s infinite; }
+        /* Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid var(--border-color); background: rgba(5, 5, 5, 0.9); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .logo { font-weight: 900; font-size: 24px; }
         .logo span { color: var(--primary-red); }
+        .btn-header { border: 1px solid var(--primary-red); color: var(--primary-red); padding: 10px 20px; border-radius: 6px; font-weight: 700; font-size: 13px; }
 
-        @keyframes pulseIcon {
-            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(244,17,44,0.4)); }
-            50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(244,17,44,0.8)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(244,17,44,0.4)); }
-        }
+        /* Container */
+        .container { max-width: 1200px; margin: 100px auto 0; padding: 40px 5%; }
 
-        nav ul {
-            display: flex;
-            gap: 35px;
-        }
-
-        nav ul li a {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-red);
-        }
-
-        .btn-header {
-            border: 1px solid var(--primary-red);
-            color: var(--primary-red);
-            padding: 10px 24px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
-            background: transparent;
-        }
-
-        .btn-header:hover {
-            background: var(--primary-red);
-            color: white;
-            box-shadow: 0 0 20px rgba(244, 17, 44, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* --- CONTAINER --- */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            padding: 180px 0 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hero-left {
-            max-width: 650px;
-            z-index: 2;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(244, 17, 44, 0.3);
-            background: rgba(244, 17, 44, 0.05);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-        }
-
-        .badge i { color: var(--primary-red); }
-
-        .hero h1 {
-            font-size: 80px;
-            font-weight: 900;
-            line-height: 0.9;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero h1 .red-text { color: var(--primary-red); display: block; }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 500px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .btn-primary, .btn-outline {
-            padding: 16px 32px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: var(--primary-red);
-            color: white;
-            border: none;
-            box-shadow: 0 0 20px rgba(244, 17, 44, 0.4);
-        }
-        
-        .btn-primary:hover {
-            background: #d00e24;
-            transform: translateY(-4px);
-            box-shadow: 0 0 30px rgba(244, 17, 44, 0.7);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-light);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary-red);
-            color: var(--primary-red);
-            transform: translateY(-4px);
-        }
-
-        .hero-features {
-            display: flex;
-            gap: 25px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-light);
-        }
-
-        .hero-features span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .hero-features i { color: var(--primary-red); }
-
-        .hero-right {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .glow-circle {
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            bottom: 50px;
-            background: var(--primary-red);
-            border-radius: 50%;
-            box-shadow: 0 0 100px 20px var(--primary-red);
-            opacity: 0.5;
-            z-index: 1;
-            animation: pulseGlow 3s infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { opacity: 0.3; transform: scale(0.9); }
-            100% { opacity: 0.7; transform: scale(1.1); }
-        }
-
-        .fake-3d-logo {
-            font-size: 350px;
-            font-weight: 900;
-            color: #111;
-            text-shadow: 
-                -2px -2px 0 var(--primary-red),
-                2px 2px 0 #333,
-                10px 10px 30px rgba(244,17,44,0.4);
-            z-index: 2;
-            transform: skew(-10deg);
-            animation: floatLogo 4s ease-in-out infinite;
-        }
-
-        @keyframes floatLogo {
-            0%, 100% { transform: skew(-10deg) translateY(0); }
-            50% { transform: skew(-10deg) translateY(-15px); }
-        }
-
-        /* --- SECÇÕES --- */
-        .section-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 60px;
-            margin-bottom: 40px;
-            scroll-margin-top: 100px;
-        }
-
+        /* Portfólio Grid */
         .section-header { margin-bottom: 40px; }
-        .subtitle {
-            color: var(--primary-red);
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .subtitle::before {
-            content: '';
-            width: 2px;
-            height: 12px;
-            background: var(--primary-red);
-            display: inline-block;
-        }
-        .title {
-            font-size: 36px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
+        .title { font-size: 36px; font-weight: 800; text-transform: uppercase; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px; }
 
-        /* --- SERVIÇOS --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: #0a0a0d;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 40px 30px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .card:hover {
-            border-color: rgba(244, 17, 44, 0.6);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 15px rgba(244,17,44,0.1);
-        }
-
-        .card:hover::after { opacity: 1; }
-
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            border: 1px solid var(--primary-red);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            color: var(--text-light);
-            margin-bottom: 25px;
-            background: rgba(244, 17, 44, 0.05);
-            transition: 0.4s;
-        }
-
-        .card:hover .icon-box {
-            background: var(--primary-red);
-            color: white;
-            box-shadow: 0 0 15px rgba(244,17,44,0.6);
-            transform: rotate(5deg) scale(1.05);
-        }
-
-        .card h3 { font-size: 18px; margin-bottom: 15px; font-weight: 700; }
-        .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 25px; }
-        
-        .link-saber-mais {
-            color: var(--primary-red);
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .link-saber-mais:hover { color: white; gap: 12px; }
-
-        /* --- PORTFÓLIO (4 CARDS) --- */
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .portfolio-card {
-            background: #0a0a0d;
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        /* O primeiro card em destaque vermelho */
-        .portfolio-card.highlight {
-            border-color: var(--primary-red);
-            box-shadow: 0 0 25px rgba(244, 17, 44, 0.15);
-        }
-
-        .portfolio-card:hover {
-            border-color: var(--primary-red);
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(244, 17, 44, 0.25);
-        }
-
-        .portfolio-media {
-            position: relative;
-            width: 100%;
-            height: 190px;
-            background: #040406;
-            overflow: hidden;
-        }
-
-        .portfolio-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.85;
-            transition: transform 0.5s ease, filter 0.3s ease;
-        }
-
-        .portfolio-card:hover .portfolio-media img {
-            transform: scale(1.08);
-            filter: brightness(1.15);
-        }
-
-        .portfolio-info {
-            padding: 22px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
-            background: #0a0a0d;
-        }
-
-        .portfolio-info h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-        }
-
-        .portfolio-card:hover .portfolio-info h4 {
-            color: var(--primary-red);
-        }
-
-        .portfolio-info p {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .btn-projeto {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--primary-red);
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.3s;
-        }
-
-        .btn-projeto:hover {
-            color: white;
-            gap: 10px;
-        }
-
-        .btn-center { display: flex; justify-content: center; }
-
-        /* --- PREÇOS --- */
-        .pricing-card {
-            background: #0a0a0d;
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transition: 0.4s;
-        }
-
-        .pricing-card:hover {
-            border-color: rgba(244,17,44,0.4);
-            transform: translateY(-5px);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary-red);
-            background: linear-gradient(180deg, rgba(244,17,44,0.06) 0%, #0a0a0d 100%);
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(244,17,44,0.15);
-        }
-
-        .badge-popular {
-            position: absolute;
-            top: -12px;
-            right: 30px;
-            background: var(--primary-red);
-            color: white;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(244,17,44,0.5);
-        }
-
-        .pricing-card h3 { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 5px; }
-        .pricing-card .desc { font-size: 12px; color: var(--text-muted); text-align: center; margin-bottom: 25px; }
-        .price { font-size: 48px; font-weight: 900; text-align: center; margin-bottom: 30px; display: flex; justify-content: center; align-items: center; gap: 10px; }
-        .price span { font-size: 14px; color: var(--text-muted); font-weight: 500; }
-
-        .features-list { margin-bottom: 40px; flex-grow: 1; }
-        .features-list li {
-            font-size: 14px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-muted);
-        }
-        .features-list li i { color: var(--primary-red); }
-
-        .btn-pricing {
-            width: 100%;
-            padding: 15px;
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: white;
-            border-radius: 6px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-            display: block;
-        }
-        
-        .pricing-card.featured .btn-pricing {
-            background: var(--primary-red);
-            border-color: var(--primary-red);
-            box-shadow: 0 0 15px rgba(244,17,44,0.4);
-        }
-
-        .btn-pricing:hover { background: #222; border-color: white; }
-        .pricing-card.featured .btn-pricing:hover { background: #d00e24; box-shadow: 0 0 25px rgba(244,17,44,0.8); }
-
-        /* --- BANNER CTA --- */
-        .cta-banner {
-            background: rgba(244, 17, 44, 0.05);
-            border: 1px solid rgba(244, 17, 44, 0.3);
-            border-radius: 20px;
-            padding: 40px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: inset 0 0 50px rgba(244, 17, 44, 0.05);
-            margin-bottom: 80px;
-        }
-
-        .cta-left { display: flex; align-items: center; gap: 30px; }
-        .cta-icon { font-size: 60px; color: var(--primary-red); }
-        .cta-text h4 { color: var(--primary-red); font-size: 12px; letter-spacing: 1px; margin-bottom: 5px; }
-        .cta-text h2 { font-size: 28px; font-weight: 800; margin-bottom: 5px; }
-        .cta-text p { color: var(--text-muted); font-size: 14px; }
-
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 60px 5% 30px;
-            background: #000;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo { margin-bottom: 20px; }
-        .footer-about { color: var(--text-muted); font-size: 13px; max-width: 300px; }
-        
-        .footer-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: var(--text-muted); font-size: 13px; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--primary-red); }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 12px;
-        }
+        .portfolio-card { background: #0a0a0d; border: 1px solid var(--border-color); border-radius: 14px; overflow: hidden; transition: 0.4s; }
+        .portfolio-card:hover { border-color: var(--primary-red); transform: translateY(-10px); }
+        .portfolio-media { width: 100%; height: 200px; overflow: hidden; }
+        .portfolio-media img { width: 100%; height: 100%; object-fit: cover; }
+        .portfolio-info { padding: 20px; }
+        .portfolio-info h4 { font-size: 16px; margin-bottom: 10px; }
+        .portfolio-info p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+        .btn-projeto { color: var(--primary-red); font-size: 12px; font-weight: 700; text-transform: uppercase; }
     </style>
 </head>
-<body id="inicio">
+<body>
 
-    <!-- CABEÇALHO -->
     <header>
-        <div class="logo"><i class="fa-solid fa-bolt"></i> FACADA<span>STORE</span></div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">INÍCIO</a></li>
-                <li><a href="#servicos">SERVIÇOS</a></li>
-                <li><a href="#portfolio">PORTFÓLIO</a></li>
-                <li><a href="#precos">PREÇOS</a></li>
-            </ul>
-        </nav>
-        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-header"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
+        <div class="logo">FACADA<span>STORE</span></div>
+        <a href="https://discord.com/invite/kUdzVrBS5T" class="btn-header">DISCORD</a>
     </header>
 
     <div class="container">
-        
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-left">
-                <div class="badge"><i class="fa-solid fa-bolt"></i> QUALIDADE • RAPIDEZ • CONFIANÇA</div>
-                <h1>FACADA <span class="red-text">STORE</span></h1>
-                <p>Desenvolvimento profissional para o teu Discord, servidores e projetos web. Qualidade que faz a diferença.</p>
-                
-                <div class="hero-buttons">
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
-                    <a href="#servicos" class="btn-outline"><i class="fa-solid fa-layer-group"></i> VER SERVIÇOS</a>
-                </div>
-
-                <div class="hero-features">
-                    <span><i class="fa-solid fa-cube"></i> Entrega Rápida</span>
-                    <span><i class="fa-solid fa-headset"></i> Suporte Dedicado</span>
-                    <span><i class="fa-solid fa-shield-halved"></i> 100% Seguro</span>
-                    <span><i class="fa-solid fa-thumbs-up"></i> Satisfação Garantida</span>
-                </div>
-            </div>
-            
-            <div class="hero-right">
-                <div class="glow-circle"></div>
-                <div class="fake-3d-logo">F</div>
-            </div>
-        </section>
-
-        <!-- CAIXA PRINCIPAL -->
-        <div class="section-box">
-            
-            <!-- SERVIÇOS -->
-            <div id="servicos" class="section-header">
-                <div class="subtitle">O QUE EU FAÇO</div>
-                <h2 class="title">SERVIÇOS</h2>
-            </div>
-            <div class="grid-3" style="margin-bottom: 80px;">
-                <div class="card">
-                    <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                    <h3>BOTS DISCORD</h3>
-                    <p>Bots personalizados para Discord com os comandos e funcionalidades que precisas. Moderação, utilitários, economia, música e muito mais.</p>
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fa-solid fa-server"></i></div>
-                    <h3>SERVIDORES DISCORD</h3>
-                    <p>Criação completa de servidores Discord profissionais, com sistema de cargos, permissões, logs, tickets e muito mais.</p>
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fa-solid fa-code"></i></div>
-                    <h3>SITES PERSONALIZADOS</h3>
-                    <p>Desenvolvimento de sites modernos, rápidos e responsivos para o teu negócio, comunidade ou projeto pessoal.</p>
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="link-saber-mais">SABER MAIS <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- PORTFÓLIO (ATUALIZADO COM AS NOVAS FOTOS E "VER DETALHES") -->
-            <div id="portfolio" class="section-header">
-                <div class="subtitle">ALGUNS TRABALHOS</div>
+        <section id="portfolio">
+            <div class="section-header">
                 <h2 class="title">PORTFÓLIO</h2>
             </div>
+            
             <div class="grid-4">
-                <!-- 1. Servidor de Comunidade (Servidor totalmente organizado) -->
-                <div class="portfolio-card highlight">
-                    <div class="portfolio-media">
-                        <!-- Foto abstrata moderna/organizada representando layout e organização -->
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Servidor de Comunidade">
-                    </div>
-                    <div class="portfolio-info">
-                        <div>
-                            <h4>Servidor de Comunidade</h4>
-                            <p>Sistema completo de cargos e permissões</p>
-                        </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-projeto">VER DETALHES <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- 2. Bot Multifuncional (Bot com vários elementos e comandos/terminal) -->
+                <!-- 1. Servidor de Comunidade -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
-                        <!-- Foto de terminal com código/comandos -->
-                        <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=600&auto=format&fit=crop" alt="Bot Multifuncional">
+                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=600" alt="Servidor Organizado">
                     </div>
                     <div class="portfolio-info">
-                        <div>
-                            <h4>Bot Multifuncional</h4>
-                            <p>Bot com +50 comandos personalizados</p>
-                        </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-projeto">VER DETALHES <i class="fa-solid fa-arrow-right"></i></a>
+                        <h4>Servidor de Comunidade</h4>
+                        <p>Sistema completo de cargos e permissões.</p>
+                        <a href="#" class="btn-projeto">VER DETALHES →</a>
                     </div>
                 </div>
 
-                <!-- 3. Landing Page Moderna (Site bonito) -->
+                <!-- 2. Bot Multifuncional -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
-                        <!-- Foto de um setup/ecrã com design de site bonito -->
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop" alt="Landing Page Moderna">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa9fe0c9ce7b?q=80&w=600" alt="Bot Multifuncional">
                     </div>
                     <div class="portfolio-info">
-                        <div>
-                            <h4>Landing Page Moderna</h4>
-                            <p>Site institucional responsivo</p>
-                        </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-projeto">VER DETALHES <i class="fa-solid fa-arrow-right"></i></a>
+                        <h4>Bot Multifuncional</h4>
+                        <p>Bot com +50 comandos personalizados.</p>
+                        <a href="#" class="btn-projeto">VER DETALHES →</a>
                     </div>
                 </div>
 
-                <!-- 4. Loja Online (Carrinho de compras / E-commerce) -->
+                <!-- 3. Landing Page Moderna -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
-                        <!-- Foto focada em comércio eletrónico / compras / dados de loja -->
-                        <img src="https://images.unsplash.com/photo-1556742049-0a67d553c2a5?q=80&w=600&auto=format&fit=crop" alt="Loja Online">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" alt="Landing Page">
                     </div>
                     <div class="portfolio-info">
-                        <div>
-                            <h4>Loja Online</h4>
-                            <p>E-commerce personalizado</p>
-                        </div>
-                        <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-projeto">VER DETALHES <i class="fa-solid fa-arrow-right"></i></a>
+                        <h4>Landing Page Moderna</h4>
+                        <p>Site institucional responsivo.</p>
+                        <a href="#" class="btn-projeto">VER DETALHES →</a>
+                    </div>
+                </div>
+
+                <!-- 4. Loja Online -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="https://images.unsplash.com/photo-1556742049-0a67d553c2a5?q=80&w=600" alt="Loja Online">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Loja Online</h4>
+                        <p>E-commerce personalizado com carrinho.</p>
+                        <a href="#" class="btn-projeto">VER DETALHES →</a>
                     </div>
                 </div>
             </div>
-            <div class="btn-center" style="margin-bottom: 80px;">
-                <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-outline"><i class="fa-solid fa-grip"></i> VER MAIS PROJETOS</a>
-            </div>
-
-            <!-- PREÇOS (€8, €15, €35) -->
-            <div id="precos" class="section-header">
-                <div class="subtitle">PLANOS POPULARES</div>
-                <h2 class="title">PREÇOS</h2>
-            </div>
-            <div class="grid-3">
-                <div class="pricing-card">
-                    <h3>BASIC</h3>
-                    <div class="desc">Ideal para projetos simples</div>
-                    <div class="price">€8 <span>a partir de</span></div>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Comandos básicos</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Configuração simples</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Suporte via Discord</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Entrega em até 3 dias</li>
-                    </ul>
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <div class="badge-popular">MAIS ESCOLHIDO</div>
-                    <div class="subtitle" style="justify-content: center; margin-bottom:10px;">PLANOS POPULARES</div>
-                    <h3>PROFISSIONAL</h3>
-                    <div class="desc">Para projetos completos</div>
-                    <div class="price">€15 <span>a partir de</span></div>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Comandos avançados</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Sistemas personalizados</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Suporte prioritário</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Entrega em até 7 dias</li>
-                    </ul>
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>PREMIUM</h3>
-                    <div class="desc">Solução completa e exclusiva</div>
-                    <div class="price">€35 <span>a partir de</span></div>
-                    <ul class="features-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Tudo do plano Profissional</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Recursos exclusivos</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Suporte 24/7</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Entrega rápida</li>
-                    </ul>
-                    <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- CTA BANNER -->
-        <div class="cta-banner">
-            <div class="cta-left">
-                <div class="cta-icon"><i class="fa-brands fa-discord"></i></div>
-                <div class="cta-text">
-                    <h4>PRONTO PARA COMEÇAR</h4>
-                    <h2>VEM FALAR COMIGO NO DISCORD!</h2>
-                    <p>Tira dúvidas, pede orçamentos ou acompanha os meus trabalhos.</p>
-                </div>
-            </div>
-            <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
-        </div>
-
+        </section>
     </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <div class="logo footer-logo"><i class="fa-solid fa-bolt"></i> FACADA<span style="color:white;">STORE</span></div>
-                <p class="footer-about">Desenvolvimento com qualidade, dedicação e confiança para levar o teu projeto ao próximo nível.</p>
-            </div>
-            <div class="footer-col">
-                <h4>NAVEGAÇÃO</h4>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#precos">Preços</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>SERVIÇOS</h4>
-                <ul>
-                    <li><a href="#servicos">Bots Discord</a></li>
-                    <li><a href="#servicos">Servidores Discord</a></li>
-                    <li><a href="#servicos">Sites Personalizados</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>CONTACTO</h4>
-                <ul>
-                    <li><a href="https://discord.com/invite/kUdzVrBS5T" target="_blank">Discord: <span style="color:#5865F2;">facada.store</span></a></li>
-                    <li><a href="#">Email: <span style="color:var(--primary-red);">contacto@facadastore.com</span></a></li>
-                    <li><a href="#">Horário: 10h - 22h (Todos os dias)</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>REDES</h4>
-                <ul>
-                    <li><a href="https://discord.com/invite/kUdzVrBS5T" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 FACADA STORE. Todos os direitos reservados.
-        </div>
-    </footer>
 
 </body>
 </html>
