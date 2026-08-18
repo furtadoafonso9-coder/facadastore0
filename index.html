@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FACADA STORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #08070b; color: #ffffff; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: rgba(8, 7, 11, 0.8); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; color: #ff1e38; letter-spacing: 1px; }
+        .logo span { color: #ffffff; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { font-size: 14px; font-weight: 500; color: #a0a0ab; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: #ff1e38; }
+        .btn-discord { background-color: #ff1e38; color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; transition: 0.3s; box-shadow: 0 0 15px rgba(255, 30, 56, 0.4); }
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 160px 6% 80px 6%; position: relative; background: radial-gradient(circle at 80% 30%, rgba(255, 30, 56, 0.15) 0%, transparent 50%); }
+        .hero-content { max-width: 600px; }
+        .badge-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 30, 56, 0.1); border: 1px solid rgba(255, 30, 56, 0.3); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #ff1e38; margin-bottom: 20px; }
+        .hero h1 { font-size: 56px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(180deg, #ffffff 0%, #a0a0ab 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero h1 span { background: linear-gradient(90deg, #ff1e38 0%, #ff6b81 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 16px; color: #a0a0ab; line-height: 1.6; margin-bottom: 30px; }
+        .container-box { background: #0d0c13; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; margin: 0 6% 80px 6%; padding: 60px 40px; }
+        .section-header { margin-bottom: 40px; }
+        .section-header .subtitle { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #ff1e38; font-weight: 700; margin-bottom: 8px; }
+        .section-header h2 { font-size: 32px; font-weight: 800; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .pricing-card { background: #13111c; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 35px 30px; }
+        .price { font-size: 36px; font-weight: 900; color: #ffffff; margin-bottom: 25px; }
+        .btn-pricing { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: white; padding: 12px; border-radius: 8px; cursor: pointer; }
+        .pricing-card.featured .btn-pricing { background: #ff1e38; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ FACADA <span>STORE</span></div>
+        <nav><ul><li><a href="#" class="active">INÍCIO</a></li><li><a href="#">SERVIÇOS</a></li><li><a href="#">PREÇOS</a></li></ul></nav>
+        <a href="#" class="btn-discord">ENTRAR NO DISCORD</a>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge-tag">⚡ QUALIDADE • RAPIDEZ • CONFIANÇA</div>
+            <h1>FACADA <span>STORE</span></h1>
+            <p>Desenvolvimento profissional para o teu Discord, servidores e projetos web.</p>
+        </div>
+    </section>
+    <div class="container-box">
+        <div class="section-header"><div class="subtitle">PLANOS POPULARES</div><h2>PREÇOS</h2></div>
+        <div class="pricing-grid">
+            <div class="pricing-card"><h3>BASIC</h3><div class="price">€5</div><button class="btn-pricing">PEDIR ORÇAMENTO</button></div>
+            <div class="pricing-card featured"><h3>PROFISSIONAL</h3><div class="price">€15</div><button class="btn-pricing">PEDIR ORÇAMENTO</button></div>
+            <div class="pricing-card"><h3>PREMIUM</h3><div class="price">€35</div><button class="btn-pricing">PEDIR ORÇAMENTO</button></div>
+        </div>
+    </div>
+</body>
+</html>
