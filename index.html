@@ -21,7 +21,6 @@
             --border-color: #22222c;
         }
 
-        /* Efeito de scroll suave para o menu funcionar bem */
         html {
             scroll-behavior: smooth;
         }
@@ -85,7 +84,6 @@
             letter-spacing: 1px;
             color: var(--text-muted);
             transition: 0.3s;
-            position: relative;
         }
 
         nav ul li a:hover {
@@ -112,7 +110,7 @@
             box-shadow: 0 0 15px rgba(244, 17, 44, 0.4);
         }
 
-        /* --- CONTAINER PADRÃO --- */
+        /* --- CONTAINER --- */
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -224,7 +222,6 @@
         
         .hero-features i { color: var(--primary-red); }
 
-        /* Simulação do logo 3D */
         .hero-right {
             position: relative;
             width: 500px;
@@ -258,14 +255,14 @@
             transform: skew(-10deg);
         }
 
-        /* --- SECÇÕES (TÍTULOS) --- */
+        /* --- SECÇÕES --- */
         .section-box {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 60px;
             margin-bottom: 40px;
-            scroll-margin-top: 100px; /* Ajuda a não colar o título ao topo no scroll */
+            scroll-margin-top: 100px;
         }
 
         .section-header { margin-bottom: 40px; }
@@ -499,13 +496,12 @@
                 <li><a href="#precos">PREÇOS</a></li>
             </ul>
         </nav>
-        <!-- BOTÃO COM O TEU LINK DO DISCORD -->
         <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-header"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
     </header>
 
     <div class="container">
         
-        <!-- HERO (INÍCIO) -->
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-left">
                 <div class="badge"><i class="fa-solid fa-bolt"></i> QUALIDADE • RAPIDEZ • CONFIANÇA</div>
@@ -513,7 +509,6 @@
                 <p>Desenvolvimento profissional para o teu Discord, servidores e projetos web. Qualidade que faz a diferença.</p>
                 
                 <div class="hero-buttons">
-                    <!-- BOTÃO COM O TEU LINK DO DISCORD -->
                     <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
                     <a href="#servicos" class="btn-outline"><i class="fa-solid fa-layer-group"></i> VER SERVIÇOS</a>
                 </div>
@@ -528,15 +523,14 @@
             
             <div class="hero-right">
                 <div class="glow-circle"></div>
-                <!-- Simulação do Logo F 3D -->
                 <div class="fake-3d-logo">F</div>
             </div>
         </section>
 
-        <!-- CAIXA PRINCIPAL ENGLOBANDO AS SECÇÕES -->
+        <!-- CAIXA PRINCIPAL -->
         <div class="section-box">
             
-            <!-- SECÇÃO SERVIÇOS -->
+            <!-- SERVIÇOS -->
             <div id="servicos" class="section-header">
                 <div class="subtitle">O QUE EU FAÇO</div>
                 <h2 class="title">SERVIÇOS</h2>
@@ -562,13 +556,12 @@
                 </div>
             </div>
 
-            <!-- SECÇÃO PORTFÓLIO -->
+            <!-- PORTFÓLIO -->
             <div id="portfolio" class="section-header">
                 <div class="subtitle">ALGUNS TRABALHOS</div>
                 <h2 class="title">PORTFÓLIO</h2>
             </div>
             <div class="grid-4">
-                <!-- Imagens substituídas por placeholders temáticos parecidos com a imagem -->
                 <div class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=600&auto=format&fit=crop" alt="Servidor de Comunidade">
                     <h4>Servidor de Comunidade</h4>
@@ -594,7 +587,7 @@
                 <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-outline"><i class="fa-solid fa-grip"></i> VER MAIS PROJETOS</a>
             </div>
 
-            <!-- SECÇÃO PREÇOS -->
+            <!-- PREÇOS CORRIGIDOS (€8, €15, €35) -->
             <div id="precos" class="section-header">
                 <div class="subtitle">PLANOS POPULARES</div>
                 <h2 class="title">PREÇOS</h2>
@@ -610,7 +603,6 @@
                         <li><i class="fa-solid fa-circle-check"></i> Suporte via Discord</li>
                         <li><i class="fa-solid fa-circle-check"></i> Entrega em até 3 dias</li>
                     </ul>
-                    <!-- BOTÃO COM O TEU LINK DO DISCORD -->
                     <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-pricing">PEDIR ORÇAMENTO</a>
                 </div>
                 
@@ -643,9 +635,9 @@
                 </div>
             </div>
 
-        </div> <!-- Fim Section Box -->
+        </div>
 
-        <!-- CTA BANNER DISCORD -->
+        <!-- CTA BANNER -->
         <div class="cta-banner">
             <div class="cta-left">
                 <div class="cta-icon"><i class="fa-brands fa-discord"></i></div>
@@ -655,7 +647,6 @@
                     <p>Tira dúvidas, pede orçamentos ou acompanha os meus trabalhos.</p>
                 </div>
             </div>
-            <!-- BOTÃO COM O TEU LINK DO DISCORD -->
             <a href="https://discord.com/invite/kUdzVrBS5T" target="_blank" class="btn-primary"><i class="fa-brands fa-discord"></i> ENTRAR NO DISCORD</a>
         </div>
 
